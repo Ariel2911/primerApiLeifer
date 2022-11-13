@@ -1,51 +1,5 @@
 const mongoose = require('mongoose');
 
-// const TracksScheme = new mongoose.Schema(
-//   {
-//     name: {
-//       type: String
-//     },
-//     album: {
-//       type: String
-//     },
-//     cover: {
-//       type: String,
-//       validate: {
-//         validator: (req) => {
-//           return true;
-//         },
-//         message: "ERROR_URL",
-//       },
-//     },
-//     artist: {
-//       name: {
-//         type: String,
-//       },
-//       nickname: {
-//         type: String,
-//       },
-//       nationality: {
-//         type: String,
-//       },
-//     },
-//     duration: {
-//       start: {
-//         type: Number,
-//       },
-//       end: {
-//         type: Number,
-//       },
-//     },
-//     mediaId: {
-//       type: mongoose.Types.ObjectId
-//     },
-//   },
-//   {
-//     versionKey: false,
-//     timestamps: true, //TODO createdAt, updatedAt
-//   }
-// );
-
 const TracksScheme = new mongoose.Schema(
   {
     name: {
@@ -107,5 +61,5 @@ module.exports = mongoose.model("tracks", TracksScheme)
 //       "start": 1,
 //       "end": 0
 //   },
-//   "mediaId": "489573487"
+//   "mediaId": "621e7499a1f699063f5114bc"
 // }

@@ -2,12 +2,12 @@ const mongoose = require('mongoose');
 
 const StorageScheme = new mongoose.Schema(
   {
-    name: {
+    url: {
       type: String
     },
     filename: {
       type: String
-    },
+    }
   },
   {
     timestamps: true, //TODO createdAt, updatedAt
