@@ -17,7 +17,7 @@ router.get("/:id",validatorGetItem , getItem);
 /**
  * Crea un registro
  */
-router.post("/", validatorCreateItem, customHeader, updateItem);
+router.post("/", validatorCreateItem, customHeader, createItems);
 
 /**
  * Actuslizar un registro

@@ -47,9 +47,9 @@ const TracksScheme = new mongoose.Schema(
   }
 );
 
-TracksScheme.plugin(mongoosedelete, { overrideMethods:'all' });
+TracksScheme.plugin(mongoosedelete, { overrideMethods: "all" });
 
-module.exports = mongoose.model("tracks", TracksScheme)
+module.exports = mongoose.model("tracks", TracksScheme);
 
 // {
 //   "name": "laifer",

@@ -13,7 +13,7 @@ const getItems = async (req, res) => {
 
     const data = await tracksModel.find({});
     
-    res.send(data);
+    res.send({ data });
     
   } catch (error) {
 
@@ -88,7 +88,7 @@ const updateItem = async (req, res) => {
 
   } catch (error) {
 
-    handleHttpError(req, "ERROR_UPDATE_ITEM");
+    handleHttpError(res, "ERROR_UPDATE_ITEM");
 
   }
 };
@@ -104,17 +104,15 @@ const deleteItem = async (req, res) => {
     
     const {id} = matchedData(req);
 
-    const data = await tracksModel.deleteOne({_id:id});
+    const data = await tracksModel.delete({_id:id});
 
     res.send({ data });
 
   } catch (error) {
     
-    handleHttpError(req, "ERROR_DELETE_ITEM");
+    handleHttpError(res, "ERROR_DELETE_ITEM");
 
   }
-
-
 
 };
 
