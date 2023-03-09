@@ -1,22 +1,73 @@
 const { tracksModel } = require("../models")
-const getItems = async (req, res) => {
-  const data = await tracksModel.find({})
+const { handleHttpError } = require("../utils/handleError");
 
-  res.send(data);
+/**
+ * Obtener lista de la base de datos
+ * @param {*} req 
+ * @param {*} res 
+ */
+const getItems = async (req, res) => {
+
+  try {
+
+    const data = await tracksModel.find({});
+    
+    res.send(data);
+    
+  } catch (error) {
+
+    handleHttpError( res, "ERROR_GET_ITEMS");
+
+  }
+
 };
+
+/**
+ * Obtener un detalle
+ * @param {*} req 
+ * @param {*} res 
+ */
 const getItem = async (req, res) => {
 
 };
+
+/**
+ * Insertar un registro
+ * @param {*} req 
+ * @param {*} res 
+ */
 const createItems = async (req, res) => {
-  const { body } = req;
 
-  const data = await tracksModel.create(body);
+  try {
+    
+      const { body } = req;
+    
+      const data = await tracksModel.create(body);
+    
+      res.send({data});  
+    
+  } catch (error) {
 
-  res.send({data});
+    handleHttpError(res, "ERROR_CREATE_ITEMS" );
+
+  }
+ 
 };
+
+/**
+ * Actualizar un registro
+ * @param {*} req 
+ * @param {*} res 
+ */
 const updateItems = async (req, res) => {
 
 };
+
+/**
+ * borrar un registro
+ * @param {*} req 
+ * @param {*} res 
+ */
 const deleteItems = async (req, res) => {
 
 };
