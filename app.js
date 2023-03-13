@@ -6,7 +6,7 @@ const morgaBody = require("morgan-body");
 const dbConnectMongo = require('./config/mongo');
 const app = express();
 const ENGINE_DB = process.env.ENGINE_DB;
-const { dbConnectSql } = require("./config/mysql");
+const { dbConnectSql } = require("./config/mariadb");
 
 app.use(cors());
 app.use(express.json());
