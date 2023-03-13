@@ -3,8 +3,10 @@ const express = require("express");
 const cors = require('cors');
 const loggerStream =  require("./utils/handleLogger");
 const morgaBody = require("morgan-body");
-const dbConnect = require('./config/mongo');
+const dbConnectMongo = require('./config/mongo');
 const app = express();
+const ENGINE_DB = process.env.ENGINE_DB;
+const { dbConnectSql } = require("./config/mysql");
 
 app.use(cors());
 app.use(express.json());
@@ -29,4 +31,4 @@ app.listen(port, () => {
   console.log(`conectado en el puerto ${port}...`)
 }); 
 
-dbConnect();
+(ENGINE_DB === "nosql") ? dbConnectMongo() : dbConnectSql();
