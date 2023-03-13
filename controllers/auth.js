@@ -51,7 +51,11 @@ const loginCtrl = async (req, res) => {
     const user = await usersModel.findOne({email:req.email}).select("password name role email");
 
     if (!user) {
+
       handleHttpError(res, "USER_NOT_EXIST", 404);
+
+      return
+
     }
 
     const hashPassword = user.get("password");
@@ -59,7 +63,11 @@ const loginCtrl = async (req, res) => {
     const check = await compare(req.password, hashPassword);
     
     if(!check) {
+
       handleHttpError(res, "PASSWORD_INVALID", 401);
+      
+      return
+
     }
 
     user.set("password", undefined, {strict:false})
