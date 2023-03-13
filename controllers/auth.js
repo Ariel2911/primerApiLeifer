@@ -80,8 +80,9 @@ const loginCtrl = async (req, res) => {
     res.send({ data });
 
   } catch (error) {
-    console.log(error)
+   
     handleHttpError(res, "ERROR_LOGIN_USER");
+    
   }
 
 };

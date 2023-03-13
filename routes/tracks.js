@@ -2,12 +2,13 @@ const express = require('express');
 const router = express.Router();
 const { validatorCreateItem, validatorGetItem } = require("../validators/tracks");
 const customHeader = require("../middleware/customHeader");
+const authMiddleware = require("../middleware/session");
 const { getItems, getItem, createItems, updateItem, deleteItem } = require('../controllers/tracks');
 
 /**
  * Lista los items
  */
-router.get("/", getItems)
+router.get("/", authMiddleware, getItems)
 
 /**
  * Obtener detalle de utem
