@@ -13,21 +13,21 @@ router.get("/", authMiddleware, getItems)
 /**
  * Obtener detalle de utem
  */
-router.get("/:id",validatorGetItem , getItem);
+router.get("/:id", authMiddleware, validatorGetItem, getItem);
 
 /**
  * Crea un registro
  */
-router.post("/", validatorCreateItem, customHeader, createItems);
+router.post("/", authMiddleware, validatorCreateItem, customHeader, createItems);
 
 /**
  * Actuslizar un registro
  */
-router.put("/:id", validatorGetItem, validatorCreateItem, customHeader, updateItem);
+router.put("/:id", authMiddleware, validatorGetItem, validatorCreateItem, customHeader, updateItem);
 
 /**
  * Elimina un registro
  */
-router.delete("/:id", validatorGetItem, customHeader, deleteItem);
+router.delete("/:id", authMiddleware, validatorGetItem, customHeader, deleteItem);
 
 module.exports = router;
