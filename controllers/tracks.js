@@ -13,7 +13,7 @@ const getItems = async (req, res) => {
 
     const user = req.user;
 
-    const data = await tracksModel.find({});
+    const data = await tracksModel.findAllData({});
     
     res.send({ data, user });
     
@@ -36,7 +36,7 @@ const getItem = async (req, res) => {
 
     const {id} = matchedData(req);
 
-    const data = await tracksModel.findById(id);
+    const data = await tracksModel.findOneData(id);
 
     res.send({ data });
 
